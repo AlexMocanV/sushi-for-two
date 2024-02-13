@@ -1,0 +1,30 @@
+#include <vector>
+#include <iostream>
+using namespace std;
+int n,i,c,maxi=0,mini,nr=0,secv1=1,secvmax=0,secv2=1,a;
+int main()
+{
+ 
+    cin>>n;
+    cin>>c;
+    for(i=1;i<n;i++)
+    {
+        cin>>a;
+        if(a==c)
+        {
+            secv1++;
+        }
+        else
+        {
+            mini=min(secv1,secv2);
+            secvmax=max(mini,secvmax);
+            secv2=secv1;
+            secv1=1;
+        }
+        c=a;
+    }
+    mini=min(secv1,secv2);
+    secvmax=max(mini,secvmax);
+    cout<<secvmax*2;
+    return 0;
+}
